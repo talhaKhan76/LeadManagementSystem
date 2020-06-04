@@ -1,0 +1,25 @@
+.btn-lightRed
+{
+    background-color:#3f51b5;
+    }
+    
+  .text-lightRed
+  {
+     color:#3f51b5;
+      }
+    
+    .button-hover
+    {
+    background: transparent!important;
+	border:none!important;
+	border-radius: 0px;
+	border-bottom: 2px solid #E0E0E0!important;
+	transition: all .4s;
+        }  
+      
+ .button-hover:focus
+ {
+    background: transparent!important;
+    box-shadow: none!important;
+	border-bottom: 2px solid #3f51b5!important;
+     }

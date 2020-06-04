@@ -1,0 +1,199 @@
+<section>
+    <div class="container-fluid bg-white"> 
+        <div class="row"> 
+
+            <div class="col-md-10 col-lg-12  pt-md-3 mb-3 ml-auto">
+           <h1 class="text-secondary"><i class="fa fa-user-plus text-lightRed"></i><b> User Registration</b></h1>
+                 <hr>
+             
+             <form action="" #form="ngForm" (submit)="onSubmit(form)" id="userRegistrationForm" class="p-2 border rounded">
+                <div class="row pt-md-2 mt-md-2 mb-3">
+             
+                 <div class="col-sm-4 col-md-4">
+
+                      <div class="form-group">
+                      <label>Address:</label>
+                      <input id="txtAddress" ngModel name="address" type="text" 
+                      [(ngModel)]="empData.address" 
+                      #address="ngModel"
+                      [ngClass]="{'form-control': true,
+                    'is-invalid': !address?.valid && address?.touched,
+                    'is-valid': address?.valid && address?.touched}"
+                      required
+                      minlength="10" />
+                      <small class="form-text text-danger"
+                      *ngIf="address?.errors?.required && address?.touched">Required</small>
+                      <small class="form-text text-danger"
+                      *ngIf="address?.errors?.minlength && address?.touched">Required at least 2 character</small>
+                      </div> 
+
+                      <div class="form-group">
+                      <label>Username:</label>
+                      <input id="txtUserName" ngModel name="username" type="text"
+                      [(ngModel)]="empData.username"  
+                      #username = "ngModel"
+                      [ngClass]="{'form-control': true,
+                       'is-invalid': !username?.valid && username?.touched,
+                       'is-valid':username?.valid && username?.touched}" 
+                       required
+                       minlength="10"/>
+                       <small class="form-text text-danger " *ngIf="username?.errors?.required && username?.touched">Required</small>
+                       <small class="form-text text-danger" *ngIf="username?.errors?.minlength && username?.touched">
+                           Required min 10 characters
+                       </small>
+                      </div>
+
+                      <div class="form-group">
+                      <label>Gender:</label>
+                      <input id="txtGender" ngModel name="gender" type="text"
+                      [(ngModel)]="empData.gender"   
+                      #gender = "ngModel"
+                      [ngClass]="{'form-control': true,
+                      'is-invalid': !gender?.valid && gender?.touched,
+                      'is-valid': gender?.valid && gender?.touched} " required />
+                      <small class="form-text text-danger" *ngIf="gender?.errors?.required && gender?.touched">Required</small>
+                      </div> 
+
+                      <div class="form-group ">
+                        <label>Role:</label>
+                        <input id="txtRole" ngModel name="role" type="text"
+                        [(ngModel)]="empData.role"  
+                        required
+                        #role = "ngModel"
+                        [ngClass]="{'form-control': true,
+                        'is-invalid': !role?.valid && role?.touched,
+                        'is-valid': role?.valid && role?.touched}" />
+                        <small class="form-text text-danger" *ngIf="role?.errors?.required && role?.touched">
+                          Required</small>
+                        </div>	 
+                        
+                    </div>
+
+                    <div class="col-sm-4 col-md-4">
+                        <div class="form-group">
+                      <label>First Name:</label>
+                      <input id="txtFirstName" class="form-control" ngModel name="firstName" type="text"
+                      [(ngModel)]="empData.firstName"  
+                      #firstName = "ngModel"
+                      required
+                      pattern="[a-zA-Z ]*"
+                      [ngClass]="{'form-control': true, 
+                      'is-invalid': !firstName?.valid && firstName?.touched,
+                      'is-valid': firstName?.valid && firstName?.touched }" />
+                      <small class="form-text text-danger" *ngIf="firstName?.errors?.required && firstName?.touched" >Required</small>
+                      <small class="form-text text-danger" *ngIf="firstName?.errors?.pattern && firstName?.touched">
+                          Required only characters</small>  
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Last Name:</label>
+                        <input id="txtLastName" ngModel name="lastName" type="text"  
+                        [(ngModel)]="empData.lastName"
+                        #lastName="ngModel"
+                        required
+                        [ngClass]="{'form-control':true,
+                        'is-invalid': !lastName?.valid && lastName?.touched,
+                       'is-valid':lastName?.valid && lastName?.touched}" />
+                       <small class="form-text text-danger" *ngIf="lastName?.errors?.required && lastName?.touched">Required</small>  
+                      </div> 
+
+                     <div class="form-group">
+                      <label>Password:</label>
+                      <input id="txtPassword" ngModel name="password" type="password"  class="form-control"
+                      [(ngModel)]="empData.password"
+                      #password = "ngModel"
+                      required
+                      pattern="[0-9A-Za-z]{8}$"
+                      [ngClass]="{'form-control':true,
+                      'is-invalid': !password?.valid && password?.touched,
+                      'is-valid': password?.valid && password?.touched}" />
+                      <small class="form-text text-danger" *ngIf="password?.errors?.required && password?.touched">
+                          Required</small>
+                      <small class="form-text text-danger" *ngIf="password?.errors?.pattern && password?.touched">
+                          Required only 8 characters (A-Z, a-z & 0-9)
+                      </small>
+                      </div>  
+
+                      <div class="form-group ">
+                        <label>Country:</label>
+                        <input id="txtCountry" ngModel name="country" type="text"
+                        [(ngModel)]="empData.country"  
+                        required
+                        #country = "ngModel"
+                        [ngClass]="{'form-control': true,
+                        'is-invalid': !country?.valid && country?.touched,
+                        'is-valid': country?.valid && country?.touched}" />
+                        <small class="form-text text-danger" *ngIf="country?.errors?.required && country?.touched">
+                          Required</small>
+                        </div>	 
+                      
+                    </div>
+
+                 <div class="col-sm-4 col-md-4">
+                 <div class="form-group">
+                      <label>Contact No:</label>
+                      <input id="txtContactNo" ngModel name="ContactNo" type="text"  class="form-control"
+                      [(ngModel)]="empData.contactNo"
+                      #contactNo = "ngModel"
+                      required
+                      pattern="[0-9]{11}$" 
+                      [ngClass]="{'form-control':true,
+                    'is-invalid': !contactNo?.valid && contactNo?.touched,
+                    'is-valid': contactNo?.valid && contactNo?.touched}"/>
+                    <small class="form-text text-danger" *ngIf="contactNo?.errors?.required && contactNo?.touched">
+                        Required</small>
+                        <small class="form-text text-danger" *ngIf="contactNo?.errors?.pattern && contactNo?.touched">
+                            Required only 11 numbers(0-9)</small>    
+                 </div>
+
+                 <div class="form-group">
+                      <label>Email:</label>
+                      <input id="txtEmail" ngModel name="email" type="text"
+                      [(ngModel)]="empData.email"  
+                      #email = "ngModel"
+                      required
+                      [ngClass]="{'form-control':true,
+                    'is-invalid': !email?.valid && email?.touched,
+                    'is-valid': email?.valid && email?.touched}" />
+                    <small class="form-text text-danger" *ngIf="email?.errors?.required && email?.touched">
+                        Required</small>
+                 </div>
+
+                     <div class="form-group ">
+                      <label>Created Date:</label>
+                      <input id="txtCreatedDate" ngModel name="createdDate" type="text"
+                      [(ngModel)]="empData.date"  
+                      required
+                      #createdDate = "ngModel"
+                      [ngClass]="{'form-control': true,
+                      'is-invalid': !createdDate?.valid && createdDate?.touched,
+                      'is-valid': createdDate?.valid && createdDate?.touched}" />
+                      <small class="form-text text-danger" *ngIf="createdDate?.errors?.required && createdDate?.touched">
+                        Required</small>
+                      </div>	
+                      
+                      <div class="form-group ">
+                        <label>City:</label>
+                        <input id="txtCity" ngModel name="city" type="text"
+                        [(ngModel)]="empData.city"  
+                        required
+                        #city = "ngModel"
+                        [ngClass]="{'form-control': true,
+                        'is-invalid': !city?.valid && city?.touched,
+                        'is-valid': city?.valid && city?.touched}" />
+                        <small class="form-text text-danger" *ngIf="city?.errors?.required && city?.touched">
+                          Required</small>
+                        </div>	 
+                    </div>
+              </div>
+               <!-- <asp:Label ID="lblSuccessMsg" runat="server" CssClass="text-success font-weight-bold" Text=""></asp:Label>
+              <asp:Label ID="lblErrorMsg" runat="server" CssClass="text-danger font-weight-bold" Text=""></asp:Label>  -->
+              <br />
+              <br />
+              <button ID="btnSubmit" Text="Submit" [disabled]="!form.form.valid"  Class="btn btn-success">Submit</button>
+              <button ID="btnBack" [disabled]="form"   Text="Back" Class="btn btn-lightRed text-white ml-2">Back</button>
+             </form>
+            </div> 
+        </div> 
+    </div> 
+</section>

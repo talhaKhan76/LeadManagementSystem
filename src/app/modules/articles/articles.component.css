@@ -1,0 +1,27 @@
+.bg-lightBlue
+{
+    background-color:#3f51b5;
+    }
+
+    .text-lightBlue
+  {
+     color:#3f51b5;
+      }
+
+      table {
+        width: 100%;
+        overflow-x: auto;
+        overflow-y: hidden;
+        min-width: 500px;
+    }
+     
+    /* th.mat-header-cell {
+        text-align: center;
+        max-width: 280px;
+        
+    }
+    
+    td.mat-cell {
+      text-align: center;
+      
+  } */
